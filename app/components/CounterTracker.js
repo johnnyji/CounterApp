@@ -15,7 +15,8 @@ export default class CounterTracker extends React.Component {
   componentWillUnmount() {
     this.unsubscribe();
   }
-  onChangeCount(newCount) {
+  onChangeCount(newCount, message) {
+    if (this.state.message) { this.setState({ message: message }); }
     this.setState({ count: newCount });
   }
   render() {

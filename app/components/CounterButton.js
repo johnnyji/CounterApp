@@ -2,18 +2,29 @@ import React from 'react';
 var CounterActions = require("../actions/CounterActions");
 
 export default class CounterButton extends React.Component {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
+  constructor(props) {
+    super(props);
+    this.handleIncrement = this.handleIncrement.bind(this);
+    this.handleDecrement = this.handleDecrement.bind(this);
   }
-  handleClick() {
+  handleIncrement() {
     CounterActions.incrementCounter();
   }
+  handleDecrement() {
+    CounterActions.decrementCounter();
+  }
   render() {
+    var p = this.props;
     return (
       <div>
-        <button onClick={this.handleClick}>Increment!</button>
+        {p.increment && <button onClick={this.handleIncrement}>Increment!</button>}
+        {p.decrement && <button onClick={this.handleDecrement}>Increment!</button>}
       </div>
     );
   }
+}
+
+CounterButton.propTypes = {
+  increment: React.PropTypes.bool,
+  decrement: React.PropTypes.bool
 }
