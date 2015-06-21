@@ -18,7 +18,7 @@ export default class CounterButton extends React.Component {
     return (
       <div>
         {p.increment && <button onClick={this.handleIncrement}>Increment!</button>}
-        {p.decrement && <button onClick={this.handleDecrement}>Increment!</button>}
+        {p.decrement && <button onClick={this.handleDecrement}>Decrement!</button>}
       </div>
     );
   }

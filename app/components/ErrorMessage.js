@@ -1,4 +1,5 @@
 import React from 'react';
+var ErrorActions = require("../actions/ErrorActions");
 var ErrorStore = require("../stores/ErrorStore");
 
 export default class ErrorMessage extends React.Component {
@@ -18,7 +19,7 @@ export default class ErrorMessage extends React.Component {
     this.setState({ message: message });
   }
   unmountError() {
-    this.setState({ message: null });
+    ErrorActions.clearMessage();
   }
   render() {
     if (this.state.message) {
